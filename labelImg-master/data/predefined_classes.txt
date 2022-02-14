@@ -1,0 +1,6 @@
+motorbike
+car
+bus
+small_truck
+big_truck
+construction_machine
