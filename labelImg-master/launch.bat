@@ -1,2 +1,0 @@
-python .\labelImg.py
-pause

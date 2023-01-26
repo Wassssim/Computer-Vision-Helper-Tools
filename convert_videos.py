@@ -33,5 +33,5 @@ videofiles = [f for f in listdir(args["input"]) if isfile(join(args["input"], f)
 
 for video in videofiles:
     print(join(args["input"], video))
-    call(f'ffmpeg -i {join(args["input"], video)} -flags +global_header -vcodec copy -acodec copy {join(args["output"], video)}')
+    call(f'ffmpeg -i "{join(args["input"], video)}" -flags +global_header -vcodec copy -acodec copy "{join(args["output"], video)}"')
 

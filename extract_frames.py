@@ -65,10 +65,10 @@ while True:
     # if we are viewing a video and we did not grab a frame then we
     # have reached the end of the video
     if not ret:
-        continue
+        break
     else:
         if args["input"] is not None and frame is None:
-            break
+            continue
 
     """if totalFrames != 75:
         for i in range(0,100):
@@ -107,9 +107,10 @@ while True:
     #if writer is not None:
      #   writer.write(frame)
     
-    if totalFrames % 30 == 0 and totalFrames > -1:
-        #if (totalFrames > 2550) and (totalFrames < 2580): 
-        cv2.imwrite(str(args["output"]+"/"+file_name.replace(".","_")+"_"+str(totalFrames)+".jpg") , frame, [int(cv2.IMWRITE_JPEG_QUALITY), 95])
+    if totalFrames % 15 == 0 and totalFrames > -1:
+        #if (totalFrames > 2550) and (totalFrames < 2580):
+        resized_frame = cv2.resize(frame, (640, 480), cv2.INTER_AREA)
+        cv2.imwrite(str(args["output"]+"/"+file_name.replace(".","_")+"_"+str(totalFrames)+".jpg") , resized_frame, [int(cv2.IMWRITE_JPEG_QUALITY), 85])
 
     # increment the total number of frames processed thus far and
     # then update the FPS counter
