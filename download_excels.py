@@ -5,8 +5,8 @@ import requests
 from os import listdir
 from os.path import join, isdir, exists
 
-input_abspath = "/media/rtxdeepstream/C RGC-OCT22/Resultats/RGC OCTOBRE 2022-SEMAINE 1"
-output_abs_path= "/media/rtxdeepstream/C RGC-OCT22/Resultats/RGC OCTOBRE 2022-SEMAINE 1/Excels"
+input_abspath = "/media/rtxdeepstream/INTENSO1/LOT3/RGC OCTOBRE 2022-SEMAINE 1"
+output_abs_path= "/media/rtxdeepstream/INTENSO1/LOT3/RGC OCTOBRE 2022-SEMAINE 1/Excels"
 api_base_url = "http://ns3089849.ip-54-36-61.eu:3002/api"
 
 sites = [ d for d in listdir(input_abspath) if isdir(join(input_abspath, d))]

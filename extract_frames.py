@@ -107,10 +107,10 @@ while True:
     #if writer is not None:
      #   writer.write(frame)
     
-    if totalFrames % 15 == 0 and totalFrames > -1:
+    if totalFrames % 5 == 0 and totalFrames > -1:
         #if (totalFrames > 2550) and (totalFrames < 2580):
-        resized_frame = cv2.resize(frame, (640, 480), cv2.INTER_AREA)
-        cv2.imwrite(str(args["output"]+"/"+file_name.replace(".","_")+"_"+str(totalFrames)+".jpg") , resized_frame, [int(cv2.IMWRITE_JPEG_QUALITY), 85])
+        resized_frame = cv2.resize(frame, (1280, 720), cv2.INTER_AREA)
+        cv2.imwrite(str(args["output"]+"/"+file_name.replace(".","_")+"_"+str(totalFrames)+".jpg") , resized_frame, [int(cv2.IMWRITE_JPEG_QUALITY), 90])
 
     # increment the total number of frames processed thus far and
     # then update the FPS counter
