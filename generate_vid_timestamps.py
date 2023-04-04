@@ -32,7 +32,7 @@ base_dir = params.d
 correction_factor = 0.027
 
 # Get list of all files in a given directory sorted by name
-list_of_files = sorted( filter( os.path.isfile,
+list_of_files = sorted( filter( lambda x : (os.path.isfile(x) and (os.path.splitext(x)[-1] == ".mp4")),
                         glob.glob(os.path.join(base_dir, '*')) ) )
 
 
