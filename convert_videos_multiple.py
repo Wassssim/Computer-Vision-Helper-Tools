@@ -1,7 +1,7 @@
 import os
 import sys
 import shutil
-from subprocess import call
+from subprocess import run
 from os import listdir
 from os.path import isdir, isfile, join
 
@@ -43,8 +43,9 @@ def main():
         
         print("The output directory is created")
         print("==> Converting:", join(args["input"], videoDir))
-        returnCode = call(f'python3 convert_videos.py "{join(args["input"], videoDir)}"')
-        if (returnCode == 0):
+        command = ['python3', 'convert_videos.py', join(args["input"], videoDir)]
+        result = run(command)
+        if (result.returncode == 0):
             moveVideos(videoDirAbspath, rawDirAbspath)
         else:
             stop = False

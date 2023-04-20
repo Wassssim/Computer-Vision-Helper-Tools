@@ -1,6 +1,6 @@
 import sys
 import os
-from subprocess import call
+from subprocess import run
 from os import listdir
 from os.path import isfile, join
 
@@ -13,7 +13,7 @@ file_name = os.path.splitext( os.path.basename(input_path))[0]
 
 args={
     "input": input_path,
-    "output": os.path.join(os.path.join( os.path.dirname(input_path), os.path.splitext( os.path.basename(input_path))[0]).replace("\\", "/"), "converted_vids")
+    "output": os.path.join(input_path, "converted_vids")
 }
 
 print("Video Directory: ", args["input"])
@@ -32,6 +32,6 @@ if not isExist:
 videofiles = [f for f in listdir(args["input"]) if isfile(join(args["input"], f)) and ".mp4" in f]
 
 for video in videofiles:
-    print(join(args["input"], video))
-    call(f'ffmpeg -i "{join(args["input"], video)}" -flags +global_header -vcodec copy -acodec copy "{join(args["output"], video)}"')
+    print(join(args["input"], video), join(args["output"], video))
+    run(['ffmpeg', '-i', join(args["input"], video), '-flags', '+global_header', '-vcodec', 'copy', '-acodec', 'copy', join(args["output"], video)])
 
